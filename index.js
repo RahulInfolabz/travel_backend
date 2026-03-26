@@ -98,6 +98,14 @@ app.get("/user/myGeneralInquiries", MyGeneralInquiries);
 // Feedback
 app.post("/user/addFeedback", AddFeedback);
 
+
+app.get("/", (req, res) => {
+  return res.status(200).json({
+    status: true,
+    message: "Travel Backend Started."
+  })
+})
+
 // ─────────────────────────────────────────────────────────────────────────────
 app.listen(PORT, () =>
   console.log(`✅ Travel Platform server started on PORT ${PORT}!`)
