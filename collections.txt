@@ -1,0 +1,26 @@
+====================================================
+  TRAVEL PLATFORM — MongoDB Collection Names
+====================================================
+
+Database Name : travel_platform
+
+Collections:
+1. users
+2. travel_categories
+3. rituals
+4. travel_packages
+5. package_inquiries
+6. general_inquiries
+7. feedbacks
+
+====================================================
+  HOW TO IMPORT SEED DATA
+====================================================
+
+Step 1: Open MongoDB Atlas
+Step 2: Select database → travel_platform
+Step 3: Create each collection listed above
+Step 4: Run seed.js using:
+        node seed.js
+
+====================================================

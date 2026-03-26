@@ -1,0 +1,235 @@
+{
+  "info": {
+    "name": "Travel Package Browsing and Discovery Platform",
+    "description": "Complete API collection for Travel Package Browsing and Discovery Platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "🔐 Common",
+      "item": [
+        {
+          "name": "Signup",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/signup", "host": ["{{base_url}}"], "path": ["signup"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Rahul Sharma\",\n  \"email\": \"rahul@gmail.com\",\n  \"password\": \"Rahul@123\",\n  \"mobile_no\": \"9900000002\",\n  \"city\": \"Ahmedabad\",\n  \"state\": \"Gujarat\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/login", "host": ["{{base_url}}"], "path": ["login"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"rahul@gmail.com\",\n  \"password\": \"Rahul@123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/logout", "host": ["{{base_url}}"], "path": ["logout"] }
+          }
+        },
+        {
+          "name": "Session",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/session", "host": ["{{base_url}}"], "path": ["session"] }
+          }
+        },
+        {
+          "name": "Change Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/changePassword", "host": ["{{base_url}}"], "path": ["changePassword"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"rahul@gmail.com\",\n  \"newPassword\": \"NewPass@123\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🌐 Public",
+      "item": [
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/categories", "host": ["{{base_url}}"], "path": ["categories"] }
+          }
+        },
+        {
+          "name": "Get All Rituals",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/rituals", "host": ["{{base_url}}"], "path": ["rituals"] }
+          }
+        },
+        {
+          "name": "Get All Packages",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/packages", "host": ["{{base_url}}"], "path": ["packages"] }
+          }
+        },
+        {
+          "name": "Get Packages — Filter by Category",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/packages?category_id=CATEGORY_ID_HERE",
+              "host": ["{{base_url}}"],
+              "path": ["packages"],
+              "query": [{ "key": "category_id", "value": "CATEGORY_ID_HERE" }]
+            }
+          }
+        },
+        {
+          "name": "Get Packages — Filter by Ritual",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/packages?ritual_id=RITUAL_ID_HERE",
+              "host": ["{{base_url}}"],
+              "path": ["packages"],
+              "query": [{ "key": "ritual_id", "value": "RITUAL_ID_HERE" }]
+            }
+          }
+        },
+        {
+          "name": "Get Packages — Filter by Price Range",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/packages?min_price=10000&max_price=30000",
+              "host": ["{{base_url}}"],
+              "path": ["packages"],
+              "query": [
+                { "key": "min_price", "value": "10000" },
+                { "key": "max_price", "value": "30000" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Package Details",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/packages/PACKAGE_ID_HERE",
+              "host": ["{{base_url}}"],
+              "path": ["packages", "PACKAGE_ID_HERE"]
+            }
+          }
+        },
+        {
+          "name": "Get All Feedbacks",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/feedbacks", "host": ["{{base_url}}"], "path": ["feedbacks"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🟢 User (Session Required)",
+      "item": [
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/user/updateProfile", "host": ["{{base_url}}"], "path": ["user", "updateProfile"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Rahul Kumar Sharma\",\n  \"mobile_no\": \"9911111111\",\n  \"city\": \"Gandhinagar\",\n  \"state\": \"Gujarat\",\n  \"profile_image\": \"https://i.pravatar.cc/150?img=10\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Add Package Inquiry",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/user/addPackageInquiry", "host": ["{{base_url}}"], "path": ["user", "addPackageInquiry"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"package_id\": \"PACKAGE_ID_HERE\",\n  \"inquiry_message\": \"Is this package available in December? We are a couple looking for a honeymoon trip.\"\n}"
+            }
+          }
+        },
+        {
+          "name": "My Package Inquiries",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/user/myPackageInquiries", "host": ["{{base_url}}"], "path": ["user", "myPackageInquiries"] }
+          }
+        },
+        {
+          "name": "Add General Inquiry",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/user/addGeneralInquiry", "host": ["{{base_url}}"], "path": ["user", "addGeneralInquiry"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inquiry_subject\": \"Custom Tour Package\",\n  \"inquiry_message\": \"I am looking for a custom 10-day North India tour. Can you help me plan one?\"\n}"
+            }
+          }
+        },
+        {
+          "name": "My General Inquiries",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/user/myGeneralInquiries", "host": ["{{base_url}}"], "path": ["user", "myGeneralInquiries"] }
+          }
+        },
+        {
+          "name": "Add Feedback",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": { "raw": "{{base_url}}/user/addFeedback", "host": ["{{base_url}}"], "path": ["user", "addFeedback"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"feedback_message\": \"Excellent platform! Found the perfect travel package very easily.\",\n  \"rating\": 5\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
